@@ -56,13 +56,24 @@ def check_blackjack(dealer_hand, player_hand):
         return True
     return False
 
+# This part of the code includes an if else statement. 
+# This check to see if the total value of the player’s hand is equal to 21. If the statement is true, then they have Blackjack. 
+# If they do not have a hand equal to 21, then the dealer’s hand is checked to see if they have 21. If the statement is true then the message that the dealer has Blackjack will print. 
+
 
 def play_game():
     print("Welcome to the Blackjack game!\n")
     dealer_hand = deal_cards(deck, 2)
     player_hand = deal_cards(deck, 2)
+
+# This part of the code is the start of the game with a welcome message 
+# The deal_cards function is used to give two cards each to both the dealer and the player 
+    
     if check_blackjack(dealer_hand, player_hand):
         return
+
+# This part of code uses the check_blackjack function in order to check to see whether either the dealer or the player has a Blackjack
+# If either has Blackjack, the game concludes 
 
     while True:
         print_results(dealer_hand, player_hand)
@@ -88,6 +99,13 @@ def play_game():
                 print("It's a tie!\n")
             return
 
+# This part of code is where the game enters a loop where the player is repeatedly asked to Hit or Stand 
+# If they choose to Hit, a card is added to their hand. However, if their total count in hand exceeds 21, they bust and lose the game 
+# If the player chooses to Stand, the dealer will draw cards until their total is at least 17
+# The results of the round are then printed based on the final total values in hand for both the player and the dealer 
+# If the dealer busts, the player wins 
+# If the players total is higher than the dealers, the player wins 
+# If the players total is lower than the dealers, the player loses 
 
 if __name__ == "__main__":
     play_game()
